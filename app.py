@@ -45,7 +45,8 @@ def webhook():
                     pass
 
                 if messaging_event.get("optin"):  # optin confirmation
-                    pass
+                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                    send_message(sender_id, "wow seen lang!")
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                     pass
