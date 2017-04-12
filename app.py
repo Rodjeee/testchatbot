@@ -94,7 +94,7 @@ def send_messageA(recipient_id):
         "message": {
             "attachment": {"type":"file", "payload":{}}
         },
-        "filedata": "UstKnowledgeDomain.json"
+        "filedata": @/UstKnowledgeDomain.json
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
     if r.status_code != 200:
