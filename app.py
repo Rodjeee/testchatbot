@@ -39,14 +39,13 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "roger that!")
+                    send_message(sender_id, "Konichiwa!")
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
 
                 if messaging_event.get("optin"):  # optin confirmation
-                    sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                    send_message(sender_id, "wow seen lang!")
+                    pass
 
                 if messaging_event.get("postback"):  # user clicked/tapped "postback" button in earlier message
                     pass
