@@ -6,8 +6,6 @@ import requests
 from flask import Flask, request
 
 app = Flask(__name__)
-app.use(express.static(__dirname + '/public'))
-
 
 @app.route('/', methods=['GET'])
 def verify():
