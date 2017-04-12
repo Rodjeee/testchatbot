@@ -39,7 +39,7 @@ def webhook():
                     recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                     message_text = messaging_event["message"]["text"]  # the message's text
 
-                    send_message(sender_id, "Konichiwa!")
+                    send_messageA(sender_id)
 
                 if messaging_event.get("delivery"):  # delivery confirmation
                     pass
@@ -77,7 +77,7 @@ def send_message(recipient_id, message_text):
         log(r.text)
 
         
-def send_messageA(recipient_id, message_text):
+def send_messageA(recipient_id):
 
     log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
@@ -92,11 +92,9 @@ def send_messageA(recipient_id, message_text):
             "id": recipient_id
         },
         "message": {
-            "attachment": {"type":"image", "payload":{}}
+            "attachment": {"type":"file", "payload":{}}
         },
-        "filedata": {
-            "UstKnowledgeDomain.json"
-        }
+        "filedata": "UstKnowledgeDomain.json"
     })
     r = requests.post("https://graph.facebook.com/v2.6/me/messages", params=params, headers=headers, data=data)
     if r.status_code != 200:
