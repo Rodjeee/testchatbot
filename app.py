@@ -4,6 +4,10 @@ import json
 
 import requests
 from flask import Flask, request
+from pydrive.auth import GoogleAuth
+
+gauth = GoogleAuth()
+gauth.LocalWebserverAuth()
 
 app = Flask(__name__)
 
